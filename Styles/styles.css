@@ -1,5 +1,5 @@
 body{
-    background-color: #3a0ca3;
+    background-color: #184e77;
 }
 
 #inputSection{
@@ -8,25 +8,75 @@ body{
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-top: 25vh;
+    margin-top: 15vh;
 }
 
 h1{
     font-size: 3rem;
-    color: white; 
+    color: #76C893; 
+    margin-bottom: 5vh;
 }
 
+form{
+    width: 25%; 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+input{
+    padding: 10px;
+    border: 0; 
+    border-radius: 3rem;
+    width: 50%; 
+    text-align: center;
+    transition: width 0.4s ease-in-out;
+
+}
+
+input:focus{
+    outline: none;  
+    width: 100%; 
+    box-shadow:0 0 15px 4px #76C893;
+}
+
+input:focus::placeholder {
+    color: transparent;
+  }
+
+button{
+    padding: 10px; 
+    width: 20%; 
+    margin: 5%; 
+    border-radius: 3rem;
+    background-color: transparent;
+    color:#76C893; 
+    border: 2px solid #76C893; 
+    transition: background-color 0.4s ease-in-out; 
+}
+
+button:hover{
+    background-color: #76C893;
+    color: #184e77; 
+}
+
+
 #displaySection{
-    background-color: white;
+    background-color: transparent;
+    border: 2px solid #76C893; 
+    border-radius: 4rem;
+    color: #76C893; 
     margin: auto; 
     width: 50vh; 
     height: 30vh;  
     margin-top: 15vh;
     display: flex;
     flex-direction: column;
-    justify-content: top;
+    justify-content: center;
     align-items: center;
     text-align: center;
+    visibility: hidden;
 }
 
 #displaySection h2 {

@@ -6,14 +6,16 @@ const input = document.getElementById("input");
 const cityDisplay = document.getElementById("city"); 
 const tempDisplay = document.getElementById("temp"); 
 const weatherDisplay = document.getElementById("weather"); 
+const displaySection = document.getElementById("displaySection")
 
 //API Key
 const apiKey = "858acac015592bf4cd9498de977d8cc6"; 
 
 //Event listener for when a location is submited and passes it to the get weather function
 submit.addEventListener('submit', function(event){
+    event.preventDefault();
     getWeather(input.value); 
-    event.preventDefault(); 
+     
 }, false); 
 
 //getWeather takes the city given from the event listener and adds it to the api URL so the fetch
@@ -21,6 +23,8 @@ submit.addEventListener('submit', function(event){
 function getWeather(city){
     let api = `http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=imperial`;
     
+    //Fetch is what sends out the request from openweather to get the data for the given city
+    //once it receives the response its converted to JSON and the passed into the display function
     fetch(api)
         .then(response => response.json())
         .then(data => displayWeather(data));
@@ -29,9 +33,9 @@ function getWeather(city){
 //display weather takes the response from the fetch and displays the city name, temperature, and
 //the icon that openweathermap gives for each weather type
 function displayWeather(response){
+    displaySection.style.visibility = 'visible'; 
     cityDisplay.innerText = response.name;
-    tempDisplay.innerHTML = `${response.main.temp} °F`; 
-    console.log(response.weather[0].icon); 
+    tempDisplay.innerHTML = `${Math.floor(response.main.temp)} °F`;  
     weatherDisplay.innerHTML = `<img src = "http://openweathermap.org/img/wn/${response.weather[0].icon}@2x.png">`;
 
 }
