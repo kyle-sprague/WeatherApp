@@ -6,7 +6,8 @@ const input = document.getElementById("input");
 const cityDisplay = document.getElementById("city"); 
 const tempDisplay = document.getElementById("temp"); 
 const weatherDisplay = document.getElementById("weather"); 
-const displaySection = document.getElementById("displaySection")
+const displaySection = document.getElementById("displaySection");
+const descriptionSection = document.getElementById("description"); 
 
 //API Key
 const apiKey = "858acac015592bf4cd9498de977d8cc6"; 
@@ -35,7 +36,8 @@ function getWeather(city){
 function displayWeather(response){
     displaySection.style.visibility = 'visible'; 
     cityDisplay.innerText = response.name;
-    tempDisplay.innerHTML = `${Math.floor(response.main.temp)} °F`;  
+    tempDisplay.innerHTML = `${Math.floor(response.main.temp)} °F`;
+    descriptionSection.innerText = response.weather[0].description; 
     weatherDisplay.innerHTML = `<img src = "http://openweathermap.org/img/wn/${response.weather[0].icon}@2x.png">`;
 
 }
