@@ -80,6 +80,8 @@ button:hover{
     margin: auto; 
     width: 40vh; 
     height: 40vh;  
+    min-height: 300px;
+    min-width: 330px;
     margin-top: 10vh;
     display: flex;
     flex-direction: column;
@@ -97,3 +99,12 @@ button:hover{
     font-size: 1.5rem;
 }
 
+@media only screen and (max-height: 900px){
+    #displaySection h2{
+        margin: 10px; 
+    }
+
+    #displaySection p{
+        margin: 10px; 
+    }
+}
