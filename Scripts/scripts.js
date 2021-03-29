@@ -39,6 +39,9 @@ function getWeather(city){
 //the icon that openweathermap gives for each weather type
 function displayWeather(response){
     displaySection.style.visibility = 'visible';
+    tempDisplay.style.visibility = 'visible'; 
+    descriptionSection.style.visibility = 'visible';
+    weatherDisplay.style.visibility = 'visible';
     cityDisplay.innerText = response.name;
     tempDisplay.innerHTML = `${Math.floor(response.main.temp)} °F`;
     descriptionSection.innerText = response.weather[0].description; 
